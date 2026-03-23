@@ -1,0 +1,60 @@
+/* style.css */
+* { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; }
+body { background-color: #f4f7f6; color: #333; }
+.welcome-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #2c3e50, #3498db); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 1s ease-out; }
+.welcome-text { color: white; font-size: 3rem; animation: popIn 1.5s ease-out forwards; text-align: center; }
+@keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.main-container { max-width: 800px; margin: 40px auto; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+.tabs-header { display: flex; background-color: #ecf0f1; }
+.tab-btn { flex: 1; padding: 15px; border: none; background: none; font-size: 1.1rem; cursor: pointer; transition: 0.3s; font-weight: bold; color: #7f8c8d; }
+.tab-btn:hover { background-color: #e0e6e8; }
+.tab-btn.active { background-color: white; color: #2980b9; border-bottom: 3px solid #2980b9; }
+.tab-content { display: none; padding: 30px; animation: fadeIn 0.5s; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* تنسيق قسم الإحصائيات الجديد مع الأنيميشن الذهبي - مصغر 50% */
+.dashboard-stats { display: flex; justify-content: space-between; margin-bottom: 30px; gap: 8px; text-align: center; }
+.stat-box { 
+    background-color: #34495e; 
+    color: white; 
+    padding: 8px 5px; 
+    border-radius: 8px; 
+    flex: 1; 
+    font-weight: bold; 
+    font-size: 0.8rem; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    border: 2px solid #f1c40f;
+    animation: goldBorderPulse 2s infinite alternate;
+}
+.stat-box span { display: block; margin-top: 5px; font-size: 1rem; color: #f1c40f; }
+
+@keyframes goldBorderPulse {
+    0% { border-color: #f1c40f; box-shadow: 0 0 5px rgba(241, 196, 15, 0.4); }
+    100% { border-color: #f39c12; box-shadow: 0 0 15px rgba(243, 156, 18, 1); }
+}
+
+.form-group { margin-bottom: 20px; }
+input[type="text"] { width: 100%; padding: 15px; border: 2px solid #bdc3c7; border-radius: 8px; font-size: 1rem; outline: none; transition: 0.3s; }
+input[type="text"]:focus { border-color: #3498db; box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); }
+.save-btn { width: 100%; padding: 15px; background-color: #27ae60; color: white; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: 0.3s; }
+.save-btn:hover { background-color: #2ecc71; }
+.list-title { margin-top: 30px; margin-bottom: 15px; color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
+
+/* جعل البرج قابلاً للضغط */
+.tower-item { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 10px; display: flex; flex-direction: column; border: 1px solid #e9ecef; cursor: pointer; transition: 0.3s; }
+.tower-item:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-color: #bdc3c7; }
+.tower-info { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.tower-info p { margin: 5px 0; pointer-events: none; }
+.action-btns button { padding: 8px 15px; margin-right: 5px; border: none; border-radius: 5px; cursor: pointer; color: white; transition: 0.3s; }
+.action-btns button:hover { opacity: 0.8; }
+.edit-btn { background-color: #f39c12; }
+.delete-btn { background-color: #e74c3c; }
+
+/* تفاصيل الزبون والبرج المخفية (تبويبة الأبراج) */
+.customer-header { display: flex; justify-content: space-between; align-items: center; font-size: 1.2rem; font-weight: bold; color: #2c3e50; width: 100%; pointer-events: none; }
+.customer-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #bdc3c7; animation: fadeInDown 0.3s ease-out; width: 100%; text-align: right; }
+.customer-details.show { display: block; }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.history-item { padding: 10px; border-bottom: 1px solid #bdc3c7; font-size: 1rem; background: white; margin-bottom: 5px; border-radius: 5px; text-align: right; }
+.history-item:last-child { margin-bottom: 0; border-bottom: none; }
